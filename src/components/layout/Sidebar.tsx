@@ -1,8 +1,18 @@
-import { Search, Heart, ChevronDown, Zap } from "lucide-react";
+import { LayoutDashboard, ShoppingCart, User, ChevronDown, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const menuItems = [
+    { icon: LayoutDashboard, label: "Dashboard", path: "/" },
+    { icon: ShoppingCart, label: "Buy tokens", path: "/buy-tokens" },
+    { icon: User, label: "Profile", path: "/profile" }
+  ];
+
   return (
     <aside className="hidden lg:block w-64 bg-secondary/50 border-r border-border min-h-screen relative">
       <div className="p-6 space-y-6">
@@ -36,19 +46,28 @@ const Sidebar = () => {
         {/* Navigation Menu */}
         <div className="space-y-4">
           <div>
-            <h3 className="text-sm font-semibold text-foreground mb-3">EWX Marketplace</h3>
+            <h3 className="text-sm font-semibold text-foreground mb-3">Menu</h3>
             <div className="space-y-2">
-              <Button 
-                variant="ghost" 
-                className="w-full justify-start text-primary bg-primary/10 hover:bg-primary/20"
-              >
-                <Search className="w-4 h-4 mr-3" />
-                Discover
-              </Button>
-              <Button variant="ghost" className="w-full justify-start text-muted-foreground hover:text-foreground">
-                <Heart className="w-4 h-4 mr-3" />
-                Favourites
-              </Button>
+              {menuItems.map((item) => {
+                const Icon = item.icon;
+                const isActive = location.pathname === item.path;
+                
+                return (
+                  <Button
+                    key={item.path}
+                    variant="ghost"
+                    onClick={() => navigate(item.path)}
+                    className={`w-full justify-start ${
+                      isActive 
+                        ? "text-primary bg-primary/10 hover:bg-primary/20" 
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    <Icon className="w-4 h-4 mr-3" />
+                    {item.label}
+                  </Button>
+                );
+              })}
             </div>
           </div>
         </div>
