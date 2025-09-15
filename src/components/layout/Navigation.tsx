@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useLocation, useNavigate } from "react-router-dom";
-import amberLogo from "@/assets/amber-logo.png";
+import amberCrystalLogo from "@/assets/amber-crystal-logo.png";
 
 const Navigation = () => {
   const location = useLocation();
@@ -21,15 +21,19 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="h-16 bg-background/80 backdrop-blur-md border-b border-border flex items-center justify-between px-4 lg:px-6 sticky top-0 z-50">
+    <nav className="h-20 bg-background/80 backdrop-blur-md border-b border-border flex items-center justify-between px-4 lg:px-6 sticky top-0 z-50">
       {/* Mobile Menu & Logo */}
       <div className="flex items-center space-x-4">
         <Button variant="ghost" size="sm" className="lg:hidden">
           <Menu className="w-5 h-5" />
         </Button>
-        <div className="flex items-center space-x-3">
-          <img src={amberLogo} alt="Amber Trade" className="w-8 h-8" />
-          <h1 className="text-2xl font-bold text-gradient">Amber Trade</h1>
+        <div className="flex items-center space-x-4">
+          <img 
+            src={amberCrystalLogo} 
+            alt="Amber Trade" 
+            className="w-14 h-14 object-contain drop-shadow-sm" 
+          />
+          <h1 className="text-3xl font-bold text-gradient">Amber Trade</h1>
         </div>
         
         {/* Navigation Items - Desktop */}
