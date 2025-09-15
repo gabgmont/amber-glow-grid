@@ -7,6 +7,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import amberLogo from "@/assets/amber-logo.png";
 
 const Navigation = () => {
   return (
@@ -16,7 +17,10 @@ const Navigation = () => {
         <Button variant="ghost" size="sm" className="lg:hidden">
           <Menu className="w-5 h-5" />
         </Button>
-        <h1 className="text-2xl font-bold text-gradient">EWX</h1>
+        <div className="flex items-center space-x-3">
+          <img src={amberLogo} alt="Amber Trade" className="w-8 h-8" />
+          <h1 className="text-2xl font-bold text-gradient">Amber Trade</h1>
+        </div>
         
         {/* Navigation Items - Desktop */}
         <div className="hidden lg:flex items-center space-x-6 ml-8">
