@@ -308,7 +308,7 @@ const BuyTokens = () => {
                       <CardContent className="p-4 space-y-3">
                         <div className="flex justify-between">
                           <span>Quantity:</span>
-                          <span className="font-semibold">{formData.quantity} credits</span>
+                          <span className="font-semibold">{(Number(formData.quantity) / Number(tokenPrice)).toFixed(2)} credits</span>
                         </div>
                         <div className="flex justify-between">
                           <span>Energy Source:</span>
